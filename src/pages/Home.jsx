@@ -13,18 +13,28 @@ const serviceShowcase = [
     subtitle: 'Контроль объекта, когда вы дома, в дороге или на работе',
     text:
       'Подбираем камеры под задачу, устанавливаем оборудование, настраиваем запись и просмотр через приложение. Можно контролировать двор, вход, кассу, склад или офис в реальном времени.',
+    points: ['подбор камер под зоны контроля', 'запись и архив', 'просмотр с телефона'],
   },
   {
     title: 'Домофоны и контроль входа',
     subtitle: 'Понятный доступ для дома, офиса и входной группы',
     text:
       'Устанавливаем вызывные панели, мониторы, замки и кабельные линии. Помогаем выбрать комплект, чтобы удобно открывать дверь и видеть, кто пришел.',
+    points: ['панель и монитор', 'замок и кнопка выхода', 'удобное открытие двери'],
   },
   {
     title: 'Охранные системы и электромонтаж',
     subtitle: 'Датчики, кабель, питание и подключение под ключ',
     text:
       'Собираем систему под объект: датчики движения и открытия, сирены, блоки питания, кабель и дополнительные электромонтажные работы. Настраиваем так, чтобы все работало как единое решение.',
+    points: ['датчики и сирены', 'кабель и питание', 'проверка после монтажа'],
+  },
+  {
+    title: 'Оборудование и материалы',
+    subtitle: 'Можно купить отдельно или сразу заказать установку',
+    text:
+      'В офисе можно уточнить наличие камер, регистраторов, домофонов, кабеля и комплектующих. Если не знаете, что выбрать, поможем собрать комплект под объект.',
+    points: ['камеры и регистраторы', 'домофоны и охрана', 'кабель и комплектующие'],
   },
 ]
 
@@ -215,6 +225,7 @@ function Home() {
             className="home-lead-form__input"
             name="name"
             placeholder="Ваше имя"
+            required
             type="text"
           />
           <input
@@ -224,6 +235,7 @@ function Home() {
             inputMode="tel"
             name="phone"
             placeholder="+7 (000) 000-00-00"
+            required
             type="tel"
           />
           <button className="button button-primary" type="submit">
@@ -311,6 +323,7 @@ function Home() {
               className="home-calculator-input"
               name="name"
               placeholder="Ваше имя"
+              required
               type="text"
             />
             <input
@@ -320,6 +333,7 @@ function Home() {
               inputMode="tel"
               name="phone"
               placeholder="+7 (000) 000-00-00"
+              required
               type="tel"
             />
             <textarea
@@ -354,6 +368,11 @@ function Home() {
                 <h3>{service.title}</h3>
                 <p className="home-service-feature__subtitle">{service.subtitle}</p>
                 <p>{service.text}</p>
+                <ul>
+                  {service.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
             </article>
           ))}
@@ -447,6 +466,7 @@ function Home() {
               autoComplete="name"
               name="name"
               placeholder="Ваше имя"
+              required
               type="text"
             />
             <input
@@ -455,6 +475,7 @@ function Home() {
               inputMode="tel"
               name="phone"
               placeholder="+7 (000) 000-00-00"
+              required
               type="tel"
             />
             <button className="button button-primary" type="submit">

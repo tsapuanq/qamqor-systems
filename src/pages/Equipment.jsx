@@ -1,5 +1,7 @@
 import equipment from '../data/equipment.js'
 
+const whatsappUrl = 'https://wa.me/77473806542'
+
 const equipmentGroups = [
   {
     title: 'Видеонаблюдение',
@@ -54,6 +56,10 @@ function Equipment() {
             <li key={brand}>{brand}</li>
           ))}
         </ul>
+        <p className="equipment-section-note">
+          Список брендов ориентировочный. Наличие конкретных моделей лучше
+          уточнить в WhatsApp или в офисе.
+        </p>
       </section>
 
       <section className="equipment-categories">
@@ -74,6 +80,17 @@ function Equipment() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="inner-page-cta">
+        <h2>Нужно подобрать оборудование?</h2>
+        <p>
+          Напишите в WhatsApp — подскажем по камерам, домофонам, кабелю и
+          комплектующим.
+        </p>
+        <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+          Уточнить наличие в WhatsApp
+        </a>
       </section>
     </section>
   )

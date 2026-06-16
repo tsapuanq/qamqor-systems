@@ -17,27 +17,27 @@ function Contacts() {
 
       <section className="contacts-simple">
         <div className="contacts-simple__intro">
-          <h2>Как с нами связаться</h2>
+          <h2>Контакты</h2>
           <p>
-            Напишите в WhatsApp, приходите в офис по адресу {contacts.address}
-            или откройте карточку компании в 2ГИС.
+            Самый быстрый способ связи — WhatsApp. В офисе можно уточнить
+            наличие оборудования, адрес для выезда и детали по монтажу.
           </p>
         </div>
 
-        <div className="contacts-simple__grid">
-          <article>
-            <span>Адрес</span>
-            <p>{contacts.address}</p>
-            <a href={contacts.twoGis} target="_blank" rel="noreferrer">
-              Построить маршрут в 2ГИС
-            </a>
-          </article>
-
+        <div className="contacts-simple__list">
           <article>
             <span>WhatsApp</span>
             <p>{contacts.whatsapp}</p>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">
               Написать в WhatsApp
+            </a>
+          </article>
+
+          <article>
+            <span>Адрес</span>
+            <p>{contacts.address}</p>
+            <a href={contacts.twoGis} target="_blank" rel="noreferrer">
+              Построить маршрут в 2ГИС
             </a>
           </article>
 
@@ -51,7 +51,7 @@ function Contacts() {
 
           <article>
             <span>2ГИС</span>
-            <p>Карточка компании и отзывы</p>
+            <p>Карточка компании, адрес и отзывы</p>
             <a href={contacts.twoGis} target="_blank" rel="noreferrer">
               Открыть в 2ГИС
             </a>
@@ -60,10 +60,6 @@ function Contacts() {
 
         <div className="contacts-simple__hours">
           <h2>График работы офиса</h2>
-          <p>
-            Выезд и консультация по Кокшетау бесплатные. Условия выезда по
-            области уточняются отдельно.
-          </p>
           <div>
             {officeHours.map(([day, time]) => (
               <p key={day}>
@@ -72,6 +68,10 @@ function Contacts() {
               </p>
             ))}
           </div>
+          <p>
+            Работаем по Кокшетау и области. Выезд по городу и условия выезда
+            за пределы города уточняются в WhatsApp.
+          </p>
         </div>
       </section>
     </section>

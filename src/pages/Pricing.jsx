@@ -17,6 +17,8 @@ const priceRows = [
   ['Выезд и осмотр объекта за пределами г. Кокшетау', 'от 10 000 ₸'],
 ]
 
+const whatsappUrl = 'https://wa.me/77473806542'
+
 function Pricing() {
   return (
     <section className="page pricing-page">
@@ -25,6 +27,10 @@ function Pricing() {
       </section>
 
       <section className="pricing-table-section" aria-label="Прайс-лист">
+        <p className="pricing-table__lead">
+          Ниже — ориентиры по монтажным работам. Финальная сумма зависит от
+          оборудования, кабеля, высоты установки и условий на объекте.
+        </p>
         <div className="pricing-table">
           {priceRows.map(([title, price]) => (
             <div className="pricing-table__row" key={title}>
@@ -37,6 +43,16 @@ function Pricing() {
           Точная стоимость зависит от объекта, количества оборудования, длины
           кабеля и сложности монтажа.
         </p>
+      </section>
+
+      <section className="inner-page-cta">
+        <h2>Хотите понять стоимость по вашему объекту?</h2>
+        <p>
+          Напишите в WhatsApp — уточним задачу и подскажем, какие работы нужны.
+        </p>
+        <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+          Получить расчет в WhatsApp
+        </a>
       </section>
     </section>
   )

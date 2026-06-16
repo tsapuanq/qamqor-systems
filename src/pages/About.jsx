@@ -1,6 +1,8 @@
 import contacts from '../data/contacts.js'
 import services from '../data/services.js'
 
+const whatsappUrl = 'https://wa.me/77473806542'
+
 function About() {
   return (
     <section className="page about-page">
@@ -67,6 +69,17 @@ function About() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="inner-page-cta">
+        <h2>Хотите обсудить объект?</h2>
+        <p>
+          Напишите в WhatsApp — подскажем по оборудованию, монтажу и
+          предварительной стоимости.
+        </p>
+        <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+          Написать в WhatsApp
+        </a>
       </section>
     </section>
   )

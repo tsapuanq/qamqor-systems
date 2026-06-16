@@ -1,5 +1,7 @@
 import services from '../data/services.js'
 
+const whatsappUrl = 'https://wa.me/77473806542'
+
 const serviceNotes = {
   Видеонаблюдение:
     'Помогает видеть, что происходит на объекте, проверять записи и контролировать важные зоны с телефона.',
@@ -64,6 +66,17 @@ function Services() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="inner-page-cta">
+        <h2>Не знаете, с какой услуги начать?</h2>
+        <p>
+          Напишите в WhatsApp — уточним объект, задачу и подскажем, какое
+          решение подойдет.
+        </p>
+        <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+          Написать в WhatsApp
+        </a>
       </section>
     </section>
   )
