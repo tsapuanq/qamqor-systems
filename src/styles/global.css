@@ -129,6 +129,7 @@ li + li {
 
 .page-shell:has(.home-page) {
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 .page-shell:has(.about-page) {
@@ -2820,7 +2821,7 @@ li + li {
   border-top: 1px solid rgba(29, 95, 153, 0.16);
 }
 
-.home-service-line {
+.home-page .home-service-line {
   display: grid;
   grid-template-columns: 76px minmax(0, 1fr);
   gap: clamp(18px, 3vw, 42px);
@@ -2833,11 +2834,11 @@ li + li {
   box-shadow: none;
 }
 
-.home-service-line + .home-service-line {
+.home-page .home-service-line + .home-service-line {
   margin-top: 0;
 }
 
-.home-service-line__number {
+.home-page .home-service-line__number {
   margin: 0;
   color: #1d5f99;
   font-size: 0.95rem;
@@ -2845,7 +2846,7 @@ li + li {
   letter-spacing: 0.08em;
 }
 
-.home-service-line__content h3 {
+.home-page .home-service-line__content h3 {
   margin-bottom: 12px;
   color: #102033;
   font-size: clamp(1.45rem, 2.6vw, 2.35rem);
@@ -2853,14 +2854,14 @@ li + li {
   line-height: 1.12;
 }
 
-.home-service-line__content p {
+.home-page .home-service-line__content p {
   max-width: 760px;
   color: #35506a;
   font-size: clamp(1rem, 1.25vw, 1.1rem);
   line-height: 1.68;
 }
 
-.home-service-line__content .home-service-feature__subtitle {
+.home-page .home-service-line__content .home-service-feature__subtitle {
   margin-bottom: 8px;
   color: #102033;
   font-weight: 800;
@@ -3058,6 +3059,110 @@ li + li {
 .contacts-page > .contacts-hero p {
   max-width: 760px;
   color: #eaf4ff;
+}
+
+/* Final inner-page hero pass: compact technical strip, readable title, visible next section. */
+.about-page > .about-hero,
+.services-page > .services-hero,
+.equipment-page > .equipment-hero,
+.pricing-page > .pricing-hero,
+.cases-page > .cases-hero,
+.contacts-page > .contacts-hero {
+  position: relative;
+  min-height: clamp(290px, 39svh, 370px);
+  justify-content: center;
+  padding-top: clamp(38px, 5vh, 62px);
+  padding-bottom: clamp(38px, 5vh, 62px);
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(148, 190, 230, 0.22);
+  background:
+    linear-gradient(90deg, rgba(5, 15, 25, 0.96) 0%, rgba(12, 43, 70, 0.9) 48%, rgba(28, 91, 135, 0.72) 100%),
+    radial-gradient(circle at 76% 42%, rgba(56, 189, 248, 0.28), transparent 23rem),
+    radial-gradient(circle at 17% 28%, rgba(125, 211, 252, 0.14), transparent 18rem),
+    linear-gradient(135deg, #07131f, #153f61 58%, #1d5f99);
+  background-position: center;
+}
+
+.about-page > .about-hero::before,
+.services-page > .services-hero::before,
+.equipment-page > .equipment-hero::before,
+.pricing-page > .pricing-hero::before,
+.cases-page > .cases-hero::before,
+.contacts-page > .contacts-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 72px),
+    linear-gradient(90deg, transparent 0 55%, rgba(125, 211, 252, 0.12) 55% 55.15%, transparent 55.15%),
+    linear-gradient(0deg, transparent 0 42%, rgba(125, 211, 252, 0.1) 42% 42.15%, transparent 42.15%);
+  opacity: 0.34;
+}
+
+.about-page > .about-hero::after,
+.services-page > .services-hero::after,
+.equipment-page > .equipment-hero::after,
+.pricing-page > .pricing-hero::after,
+.cases-page > .cases-hero::after,
+.contacts-page > .contacts-hero::after {
+  content: '';
+  position: absolute;
+  right: max(18px, calc((100vw - var(--container-width)) / 2 + 24px));
+  top: 50%;
+  z-index: -1;
+  width: clamp(190px, 24vw, 350px);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.16) 0 10%, transparent 11%),
+    radial-gradient(circle at 50% 50%, transparent 0 33%, rgba(125, 211, 252, 0.3) 34% 36%, transparent 37% 48%, rgba(125, 211, 252, 0.2) 49% 51%, transparent 52%),
+    radial-gradient(circle at 40% 36%, rgba(255, 255, 255, 0.16), transparent 18%),
+    linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(29, 95, 153, 0.04));
+  opacity: 0.5;
+}
+
+.about-page > .about-hero > *,
+.services-page > .services-hero > *,
+.equipment-page > .equipment-hero > *,
+.pricing-page > .pricing-hero > *,
+.cases-page > .cases-hero > *,
+.contacts-page > .contacts-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-page > .about-hero h1,
+.services-page > .services-hero h1,
+.equipment-page > .equipment-hero h1,
+.pricing-page > .pricing-hero h1,
+.cases-page > .cases-hero h1,
+.contacts-page > .contacts-hero h1 {
+  max-width: 980px;
+  color: #ffffff;
+  font-size: clamp(2rem, 3.8vw, 3.85rem);
+  font-weight: 760;
+  line-height: 1.08;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
+  text-wrap: balance;
+}
+
+.about-page > .about-hero p,
+.services-page > .services-hero p,
+.equipment-page > .equipment-hero p,
+.pricing-page > .pricing-hero p,
+.cases-page > .cases-hero p,
+.contacts-page > .contacts-hero p {
+  max-width: 760px;
+  margin-top: 18px;
+  color: #eaf4ff;
+  font-size: clamp(0.98rem, 1.25vw, 1.14rem);
+  line-height: 1.58;
 }
 
 .contacts-simple__intro {
@@ -3381,13 +3486,13 @@ li + li {
     gap: 42px;
   }
 
-  .home-service-line {
+  .home-page .home-service-line {
     grid-template-columns: 1fr;
     gap: 8px;
     padding: 24px 0;
   }
 
-  .home-service-line__content h3 {
+  .home-page .home-service-line__content h3 {
     font-size: clamp(1.35rem, 7vw, 2rem);
   }
 

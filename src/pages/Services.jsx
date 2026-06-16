@@ -1,4 +1,3 @@
-import heroCamera from '../assets/hero/hero-camera.jpg'
 import services from '../data/services.js'
 
 const serviceNotes = {
@@ -19,12 +18,7 @@ const serviceNotes = {
 function Services() {
   return (
     <section className="page services-page">
-      <section
-        className="services-hero"
-        style={{
-          backgroundImage: `linear-gradient(90deg, rgba(5, 10, 15, 0.82) 0%, rgba(5, 10, 15, 0.62) 48%, rgba(5, 10, 15, 0.42) 100%), url(${heroCamera})`,
-        }}
-      >
+      <section className="services-hero">
         <h1>Мы предлагаем не просто камеры, а полноценные решения безопасности</h1>
       </section>
 

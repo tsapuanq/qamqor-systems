@@ -1,4 +1,3 @@
-import heroCamera from '../assets/hero/hero-camera.jpg'
 import contacts from '../data/contacts.js'
 
 const whatsappUrl = 'https://wa.me/77473806542'
@@ -12,17 +11,8 @@ const officeHours = [
 function Contacts() {
   return (
     <section className="page contacts-page">
-      <section
-        className="contacts-hero"
-        style={{
-          backgroundImage: `linear-gradient(90deg, rgba(5, 10, 15, 0.82) 0%, rgba(5, 10, 15, 0.62) 48%, rgba(5, 10, 15, 0.42) 100%), url(${heroCamera})`,
-        }}
-      >
+      <section className="contacts-hero">
         <h1>Свяжитесь с нами — консультация и выезд специалиста бесплатно</h1>
-        <p className="contacts-hero__lead">
-          WhatsApp, офис, Instagram и 2ГИС — все основные контакты на одной
-          странице без лишних форм.
-        </p>
       </section>
 
       <section className="contacts-simple">

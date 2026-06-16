@@ -1,5 +1,3 @@
-import heroCamera from '../assets/hero/hero-camera.jpg'
-
 const priceRows = [
   ['Монтаж IP камеры в помещение на высоте до 3 м.', '15 000 ₸'],
   ['Монтаж IP камеры в помещение на высоте от 3 м.', '20 000 ₸'],
@@ -22,12 +20,7 @@ const priceRows = [
 function Pricing() {
   return (
     <section className="page pricing-page">
-      <section
-        className="pricing-hero"
-        style={{
-          backgroundImage: `linear-gradient(90deg, rgba(5, 10, 15, 0.82) 0%, rgba(5, 10, 15, 0.62) 48%, rgba(5, 10, 15, 0.42) 100%), url(${heroCamera})`,
-        }}
-      >
+      <section className="pricing-hero">
         <h1>Актуальные цены на установку видеонаблюдения</h1>
       </section>
 

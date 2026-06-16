@@ -30,7 +30,12 @@ function App() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      setCurrentPath(getHashPath())
+      const nextPath = getHashPath()
+      setCurrentPath(nextPath)
+
+      if (window.location.hash.startsWith('#/')) {
+        window.scrollTo({ top: 0, left: 0 })
+      }
     }
 
     window.addEventListener('hashchange', handleHashChange)
@@ -43,6 +48,14 @@ function App() {
       window.removeEventListener('hashchange', handleHashChange)
     }
   }, [])
+
+  useEffect(() => {
+    if (window.location.hash.startsWith('#/')) {
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0 })
+      })
+    }
+  }, [currentPath])
 
   return (
     <div className="app">

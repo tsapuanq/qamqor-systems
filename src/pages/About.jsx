@@ -1,16 +1,10 @@
-import heroCamera from '../assets/hero/hero-camera.jpg'
 import contacts from '../data/contacts.js'
 import services from '../data/services.js'
 
 function About() {
   return (
     <section className="page about-page">
-      <section
-        className="about-hero"
-        style={{
-          backgroundImage: `linear-gradient(90deg, rgba(5, 10, 15, 0.82) 0%, rgba(5, 10, 15, 0.62) 48%, rgba(5, 10, 15, 0.42) 100%), url(${heroCamera})`,
-        }}
-      >
+      <section className="about-hero">
         <h1>Надёжные решения безопасности с опытом</h1>
       </section>
 

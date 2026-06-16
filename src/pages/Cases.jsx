@@ -1,4 +1,3 @@
-import heroCamera from '../assets/hero/hero-camera.jpg'
 import cases from '../data/cases.js'
 
 const whatsappUrl = 'https://wa.me/77473806542'
@@ -47,12 +46,7 @@ const caseDetails = [
 function Cases() {
   return (
     <section className="page cases-page">
-      <section
-        className="cases-hero"
-        style={{
-          backgroundImage: `linear-gradient(90deg, rgba(5, 10, 15, 0.82) 0%, rgba(5, 10, 15, 0.62) 48%, rgba(5, 10, 15, 0.42) 100%), url(${heroCamera})`,
-        }}
-      >
+      <section className="cases-hero">
         <h1>Наши проекты видеонаблюдения и безопасность под ключ</h1>
       </section>
 
