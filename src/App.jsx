@@ -10,6 +10,7 @@ import Cases from './pages/Cases.jsx'
 import Contacts from './pages/Contacts.jsx'
 import contacts from './data/contacts.js'
 import { getPageSeo, siteSeo } from './data/seo.js'
+import { trackPageView } from './lib/analytics.js'
 
 const routes = {
   '/': Home,
@@ -178,6 +179,7 @@ function App() {
     setMetaAttribute('meta[name="twitter:description"]', 'content', seo.description)
     setCanonical(routeUrl)
     setStructuredData(currentPath)
+    trackPageView(currentPath, seo.title)
   }, [currentPath])
 
   return (
