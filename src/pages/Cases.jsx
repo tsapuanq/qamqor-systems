@@ -1,4 +1,5 @@
 import cases from '../data/cases.js'
+import dostyqSchoolImage from '../assets/cases/dostyq-school.svg'
 
 const whatsappUrl = 'https://wa.me/77473806542'
 
@@ -6,13 +7,15 @@ const visibleCases = cases.filter((caseItem) => caseItem.title !== 'Домофо
 
 const caseDetails = [
   {
-    title: 'Частный дом',
+    title: 'Dostyq School',
     lead:
-      'Для частного дома важно закрыть вход, двор, ворота и зоны, где чаще всего нужен контроль.',
+      'Для школы установили систему домофонии HiWatch, чтобы вход работал через вызовные панели, монитор и магнитный замок.',
     details:
-      'Подбираем камеры, регистратор, кабель и настройку просмотра с телефона. После монтажа проверяем запись, ночной режим и объясняем владельцу, как пользоваться приложением.',
+      'Поставили две вызывные панели и один монитор. Оборудование подключено к магнитному замку, чтобы посетителя можно было принять и открыть дверь изнутри.',
     result:
-      'Владелец получает понятную систему: видно, что происходит на участке, у входа и рядом с домом.',
+      'Вход стал понятнее и безопаснее: сотрудник видит вызов, общается с посетителем и управляет открытием двери.',
+    image: dostyqSchoolImage,
+    imageAlt: 'Dostyq School',
   },
   {
     title: 'Магазин',
@@ -66,10 +69,16 @@ function Cases() {
 
             return (
               <article className="cases-feature" key={caseItem.title}>
-                <div className="cases-feature__visual" aria-hidden="true">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <strong>{detail.title}</strong>
-                </div>
+                {detail.image ? (
+                  <figure className="cases-feature__media">
+                    <img src={detail.image} alt={detail.imageAlt ?? detail.title} />
+                  </figure>
+                ) : (
+                  <div className="cases-feature__visual" aria-hidden="true">
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <strong>{detail.title}</strong>
+                  </div>
+                )}
 
                 <h3>{detail.title}</h3>
                 <p>{detail.lead}</p>

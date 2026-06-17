@@ -1,0 +1,34 @@
+<svg width="1200" height="820" viewBox="0 0 1200 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="820" fill="#54285F"/>
+  <rect width="1200" height="820" fill="url(#vignette)"/>
+  <g opacity="0.92" filter="url(#glow)">
+    <path d="M0 121H395C448 121 491 78 491 25V0" stroke="#DA4DFF" stroke-width="7"/>
+    <path d="M1200 243H786C733 243 690 286 690 339C690 392 733 435 786 435H1200" stroke="#DA4DFF" stroke-width="7"/>
+    <path d="M0 617H332C385 617 428 660 428 713C428 766 385 809 332 809H0" stroke="#DA4DFF" stroke-width="7"/>
+    <path d="M1200 712H835C782 712 739 755 739 808V820" stroke="#DA4DFF" stroke-width="7"/>
+  </g>
+  <g opacity="0.96">
+    <text x="600" y="420" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="162" font-weight="900" letter-spacing="-5">DOSTYQ</text>
+    <text x="600" y="520" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="300" letter-spacing="26">SCHOOL</text>
+  </g>
+  <g transform="translate(70 70)">
+    <rect x="0" y="0" width="80" height="80" rx="8" fill="#C81A8B"/>
+    <rect x="18" y="34" width="38" height="26" rx="3" stroke="#54285F" stroke-width="7"/>
+    <path d="M55 31H78" stroke="#54285F" stroke-width="7" stroke-linecap="round"/>
+    <text x="100" y="38" fill="#C81A8B" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="900">DOSTYQ</text>
+    <text x="104" y="75" fill="#FFFFFF" fill-opacity="0.62" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="400" letter-spacing="13">SCHOOL</text>
+  </g>
+  <defs>
+    <filter id="glow" x="-40" y="-40" width="1280" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="vignette" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 410) rotate(90) scale(510 740)">
+      <stop stop-color="#6A3175"/>
+      <stop offset="1" stop-color="#321B38"/>
+    </radialGradient>
+  </defs>
+</svg>
