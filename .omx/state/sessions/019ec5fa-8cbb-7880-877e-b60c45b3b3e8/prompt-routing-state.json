@@ -1,12 +1,12 @@
 {
   "version": 1,
   "last_triage": {
-    "lane": "HEAVY",
-    "destination": "autopilot",
-    "reason": "implementation_research_goal",
-    "prompt_signature": "sha256:01313a200f7db735ebd8af65278749477968ef2f1fc58f0a1dad51985b43418d",
-    "turn_id": "019ec66b-a007-7433-ab7b-a10e04e844ce",
-    "created_at": "2026-06-14T13:56:42.756Z"
+    "lane": "LIGHT",
+    "destination": "explore",
+    "reason": "local_reference_lookup",
+    "prompt_signature": "sha256:a639f396e2f34255f138a13d627d46925deac1a30a003540fa1ce9c719eaa4ff",
+    "turn_id": "019ed492-6482-74b0-a845-654fce752ff3",
+    "created_at": "2026-06-17T07:53:44.540Z"
   },
   "suppress_followup": true
 }
