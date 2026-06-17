@@ -31,12 +31,37 @@ function getPublicAssetUrl(assetName) {
 }
 
 function getRouteUrl(currentPath) {
-  return `${getSiteRootUrl()}#${currentPath}`
+  return new URL(currentPath.replace(/^\//, ''), getSiteRootUrl()).href
 }
 
-function getHashPath() {
-  const path = window.location.hash.replace('#', '')
+function getRoutePathFromLocation() {
+  const hashPath = window.location.hash.replace('#', '')
+
+  if (routes[hashPath]) {
+    return hashPath
+  }
+
+  const basePath = new URL(import.meta.env.BASE_URL, window.location.origin).pathname.replace(
+    /\/$/,
+    '',
+  )
+  let path = window.location.pathname
+
+  if (basePath && path.startsWith(basePath)) {
+    path = path.slice(basePath.length) || '/'
+  }
+
+  if (!path.startsWith('/')) {
+    path = `/${path}`
+  }
+
+  path = path.replace(/\/+$/, '') || '/'
+
   return routes[path] ? path : '/'
+}
+
+function getRouteHref(path) {
+  return new URL(path.replace(/^\//, ''), getSiteRootUrl()).pathname
 }
 
 function setMetaAttribute(selector, attribute, value) {
@@ -127,36 +152,31 @@ function setStructuredData(currentPath) {
 }
 
 function App() {
-  const [currentPath, setCurrentPath] = useState(getHashPath)
+  const [currentPath, setCurrentPath] = useState(getRoutePathFromLocation)
   const Page = routes[currentPath]
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const nextPath = getHashPath()
+    if (window.location.hash.startsWith('#/')) {
+      const cleanPath = getRoutePathFromLocation()
+      window.history.replaceState({}, '', getRouteHref(cleanPath))
+    }
+
+    const handleRouteChange = () => {
+      const nextPath = getRoutePathFromLocation()
       setCurrentPath(nextPath)
-
-      if (window.location.hash.startsWith('#/')) {
-        window.scrollTo({ top: 0, left: 0 })
-      }
     }
 
-    window.addEventListener('hashchange', handleHashChange)
-
-    if (!window.location.hash) {
-      window.location.hash = '/'
-    }
+    window.addEventListener('popstate', handleRouteChange)
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange)
+      window.removeEventListener('popstate', handleRouteChange)
     }
   }, [])
 
   useEffect(() => {
-    if (window.location.hash.startsWith('#/')) {
-      window.requestAnimationFrame(() => {
-        window.scrollTo({ top: 0, left: 0 })
-      })
-    }
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0 })
+    })
   }, [currentPath])
 
   useEffect(() => {
@@ -184,7 +204,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header currentPath={currentPath} />
+      <Header currentPath={currentPath} onNavigate={setCurrentPath} />
       <main className="page-shell">
         <Page />
       </main>

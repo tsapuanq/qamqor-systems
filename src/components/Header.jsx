@@ -41,11 +41,29 @@ const contactLinks = [
   },
 ]
 
-function Header({ currentPath }) {
+function getRouteHref(path) {
+  return new URL(path.replace(/^\//, ''), window.location.origin + import.meta.env.BASE_URL)
+    .pathname
+}
+
+function Header({ currentPath, onNavigate }) {
+  function handleNavigate(event, path) {
+    event.preventDefault()
+
+    const nextUrl = getRouteHref(path)
+    window.history.pushState({}, '', nextUrl)
+    onNavigate(path)
+  }
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="site-logo" href="#/" aria-label="Qamqor Systems — главная">
+        <a
+          aria-label="Qamqor Systems — главная"
+          className="site-logo"
+          href={getRouteHref('/')}
+          onClick={(event) => handleNavigate(event, '/')}
+        >
           <img className="site-logo-image" src={logo} alt="" />
           <span className="site-logo-text">Qamqor Systems</span>
         </a>
@@ -54,8 +72,9 @@ function Header({ currentPath }) {
           {navigation.map((item) => (
             <a
               aria-current={currentPath === item.path ? 'page' : undefined}
-              href={`#${item.path}`}
+              href={getRouteHref(item.path)}
               key={item.path}
+              onClick={(event) => handleNavigate(event, item.path)}
             >
               {item.label}
             </a>
